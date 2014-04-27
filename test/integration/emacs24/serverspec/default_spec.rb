@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe file("/opt/emacs24") do
+describe file("/opt/emacs") do
   it { should be_directory }
 end
 
