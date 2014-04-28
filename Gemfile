@@ -1,4 +1,4 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
 gem 'chef', '~> 11.12.2'
 gem 'berkshelf', '~> 2.0.16'
@@ -10,4 +10,5 @@ group :integration do
   gem 'serverspec'
   gem 'rspec'
   gem 'foodcritic'
+  gem 'rubocop'
 end
