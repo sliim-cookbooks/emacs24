@@ -18,3 +18,8 @@
 
 default['emacs24']['build_dir'] = '/opt/emacs24'
 default['emacs24']['version'] = '24.3'
+
+case node['platform']
+when 'debian'
+  default['emacs24']['packages'] = ['build-essential', 'libtinfo-dev']
+end

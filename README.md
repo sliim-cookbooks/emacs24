@@ -4,6 +4,9 @@ Download and install GNU Emacs 24.3 from source.
 
 Requirements
 ------------
+#### Cookbooks
+- `apt` - `http://community.opscode.com/cookbooks/apt`
+
 #### Platforms
 The following platforms and versions are tested and supported using Opscode's test-kitchen.
 - Debian wheezy

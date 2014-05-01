@@ -16,6 +16,14 @@
 # limitations under the License.
 #
 
+include_recipe 'apt'
+
+node['emacs24']['packages'].each do |pkg|
+  package pkg do
+    action :install
+  end
+end
+
 remotefile = 'http://ftp.gnu.org/gnu/emacs/emacs-'
 remotefile << node['emacs24']['version'] << '.tar.gz'
 localfile = Chef::Config[:file_cache_path] + '/emacs.tar.gz'
@@ -26,9 +34,7 @@ remote_file localfile do
 end
 
 directory node['emacs24']['build_dir'] do
-  owner 'root'
-  group 'root'
-  mode '0755'
+  mode 0755
   action :create
   recursive true
 end
