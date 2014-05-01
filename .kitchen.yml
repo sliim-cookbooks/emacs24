@@ -4,17 +4,17 @@ driver_config:
   require_chef_omnibus: true
 
 platforms:
-- name: wheezy
-  driver_config:
-    box: debian-7.0-amd64-wheezy-chef-11.4.4.box
-    box_url: https://dl.dropboxusercontent.com/s/si19tbftilcuipz/debian-7.0-amd64.box
+  - name: debian-7.2
+    driver_config:
+      box: opscode_debian-7.2.0_chef-provisionerless.box
+      box_url: https://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_debian-7.2.0_chef-provisionerless.box
 
 suites:
-- name: emacs24
-  run_list:
-  - recipe[emacs24]
-  attributes: {
-    emacs24: {
-      build_dir: "/opt/emacs"
+  - name: emacs24
+    run_list:
+      - recipe[emacs24]
+    attributes: {
+      emacs24: {
+        build_dir: "/opt/emacs"
+      }
     }
-  }
