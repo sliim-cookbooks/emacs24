@@ -21,5 +21,5 @@ default['emacs24']['version'] = '24.3'
 
 case node['platform']
 when 'debian'
-  default['emacs24']['packages'] = ['build-essential', 'libtinfo-dev']
+  default['emacs24']['packages'] = %w(build-essential libtinfo-dev)
 end
