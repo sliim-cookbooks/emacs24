@@ -1,7 +1,7 @@
 emacs24 Cookbook
 ================
 Download and install GNU Emacs 24.3 from source.  
-[![Build Status](https://travis-ci.org/Sliim/emacs24-cookbook.svg?branch=master)](https://travis-ci.org/Sliim/emacs24-cookbook)
+[![Cookbook Version](https://img.shields.io/cookbook/v/emacs24.svg)](https://community.opscode.com/cookbooks/emacs24) [![Build Status](https://travis-ci.org/Sliim/emacs24-cookbook.svg?branch=master)](https://travis-ci.org/Sliim/emacs24-cookbook) 
 
 Requirements
 ------------
