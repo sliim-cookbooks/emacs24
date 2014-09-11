@@ -20,6 +20,7 @@ require 'spec_helper'
 
 describe file('/opt/emacs') do
   it { should be_directory }
+  it { should be_mode 755 }
 end
 
 describe file('/opt/emacs/README') do
@@ -32,4 +33,5 @@ end
 
 describe file('/usr/local/bin/emacs') do
   it { should be_file }
+  it { should be_executable }
 end
