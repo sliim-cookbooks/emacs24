@@ -8,4 +8,12 @@ description      'Installs/Configures emacs24'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '0.1.1'
 
-depends 'apt'
+recipe 'emacs24', 'Install Emacs 24 from source.'
+
+%w(apt build-essential).each do |cb|
+  depends cb
+end
+
+%w(ubuntu debian).each do |os|
+  supports os
+end

@@ -7,10 +7,12 @@ Requirements
 ------------
 #### Cookbooks
 - `apt` - `http://community.opscode.com/cookbooks/apt`
+- `build-essential` - `http://community.opscode.com/cookbooks/build-essential`
 
 #### Platforms
 The following platforms and versions are tested and supported using Opscode's test-kitchen.
-- Debian wheezy
+- Debian 7.2
+- Ubuntu 12.04
 
 Attributes
 ----------

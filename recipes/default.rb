@@ -17,6 +17,7 @@
 #
 
 include_recipe 'apt'
+include_recipe 'build-essential'
 
 node['emacs24']['packages'].each do |pkg|
   package pkg do

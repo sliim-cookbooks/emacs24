@@ -3,4 +3,5 @@ site :opscode
 
 metadata
 
-cookbook "apt"
+cookbook 'apt'
+cookbook 'build-essential'
