@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- coding: utf-8 -*-
 #
 # Cookbook Name:: emacs24
 # Attributes:: default

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- coding: utf-8 -*-
 #
 # Cookbook Name:: emacs24
 # Recipe:: default
@@ -16,7 +16,7 @@
 # limitations under the License.
 #
 
-require 'spec_helper'
+require 'serverspec'
 
 describe file('/opt/emacs') do
   it { should be_directory }

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- coding: utf-8 -*-
 #
 # Cookbook Name:: emacs24
 # Recipe:: default
@@ -35,7 +35,7 @@ remote_file localfile do
 end
 
 directory node['emacs24']['build_dir'] do
-  mode 0755
+  mode '0755'
   action :create
   recursive true
 end
