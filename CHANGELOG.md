@@ -3,6 +3,10 @@ emacs24 CHANGELOG
 
 This file is used to list changes made in each version of the emacs24 cookbook.
 
+O.2.1
+-----
+- Spec improvements, code style
+
 O.2.0
 -----
 - Fixed packages attribute for non debian platform
