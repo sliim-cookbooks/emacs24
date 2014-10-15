@@ -17,6 +17,7 @@
 #
 
 require 'serverspec'
+set :backend, :exec
 
 describe file('/opt/emacs') do
   it { should be_directory }
