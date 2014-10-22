@@ -47,7 +47,7 @@ end
 
 execute 'configure and make' do
   cwd node['emacs24']['build_dir']
-  command "./configure #{node['emacs24']['flags']}&& make"
+  command "./configure #{node['emacs24']['flags'].join(' ')}&& make"
 end
 
 execute 'make install' do

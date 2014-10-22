@@ -66,7 +66,7 @@ describe 'emacs24::default' do
         node.set['emacs24']['build_dir'] = '/opt/emacs-build'
         node.set['emacs24']['version'] = '24.4'
         node.set['emacs24']['packages'] = ['libtinfo-dev']
-        node.set['emacs24']['flags'] = '--with-x-toolkit=no'
+        node.set['emacs24']['flags'] = ['--with-x-toolkit=no', '--with-jpeg=no']
       end.converge described_recipe
     end
 
@@ -98,7 +98,7 @@ describe 'emacs24::default' do
     it 'does build emacs in correct build directory' do
       expect(subject).to run_execute('configure and make')
         .with(cwd: '/opt/emacs-build',
-              command: './configure --with-x-toolkit=no&& make')
+              command: './configure --with-x-toolkit=no --with-jpeg=no&& make')
 
       expect(subject).to run_execute('make install')
         .with(cwd: '/opt/emacs-build',
