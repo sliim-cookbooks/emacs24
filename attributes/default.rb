@@ -17,6 +17,7 @@
 #
 
 default['emacs24']['build_dir'] = '/opt/emacs24'
+default['emacs24']['flags'] = ''
 default['emacs24']['version'] = '24.4'
 default['emacs24']['packages'] = []
 

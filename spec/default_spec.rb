@@ -36,7 +36,7 @@ describe 'emacs24::default' do
 
     it 'does download emacs package' do
       expect(subject).to create_remote_file('/var/chef/cache/emacs.tar.gz')
-        .with(source: 'http://ftp.gnu.org/gnu/emacs/emacs-24.3.tar.gz',
+        .with(source: 'http://ftp.gnu.org/gnu/emacs/emacs-24.4.tar.gz',
               mode: '0644')
     end
 
@@ -66,6 +66,7 @@ describe 'emacs24::default' do
         node.set['emacs24']['build_dir'] = '/opt/emacs-build'
         node.set['emacs24']['version'] = '24.4'
         node.set['emacs24']['packages'] = ['libtinfo-dev']
+        node.set['emacs24']['flags'] = '--with-x-toolkit=no'
       end.converge described_recipe
     end
 
@@ -97,12 +98,11 @@ describe 'emacs24::default' do
     it 'does build emacs in correct build directory' do
       expect(subject).to run_execute('configure and make')
         .with(cwd: '/opt/emacs-build',
-              command: './configure && make')
+              command: './configure --with-x-toolkit=no&& make')
 
       expect(subject).to run_execute('make install')
         .with(cwd: '/opt/emacs-build',
               command: 'sudo make install')
     end
   end
-
 end

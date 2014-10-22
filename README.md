@@ -11,14 +11,16 @@ Requirements
 
 #### Platforms
 The following platforms and versions are tested and supported using Opscode's test-kitchen.
-- Debian 7.2
+- Debian 7
 - Ubuntu 12.04
 
 Attributes
 ----------
 #### emacs24::default
 * `default["emacs24"]["build_dir"]` - Where emacs archive will be extracted and builded
+* `default["emacs24"]["flags"]` - Flags to pass to configure emacs
 * `default["emacs24"]["version"]` - Emacs version to install
+* `default["emacs24"]["packages"]` - Packages to install
 
 Usage
 -----
