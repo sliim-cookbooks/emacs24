@@ -13,6 +13,7 @@ Requirements
 The following platforms and versions are tested and supported using Opscode's test-kitchen.
 - Debian 7
 - Ubuntu 12.04
+- Ubuntu 14.04
 
 Attributes
 ----------
