@@ -3,6 +3,12 @@ emacs24 CHANGELOG
 
 This file is used to list changes made in each version of the emacs24 cookbook.
 
+0.3.0
+-----
+- Emacs 24.4 as default installed version
+- Added `flags` attribute to set a list of flags for configure script
+- Added Ubuntu 14.04 as compatible platform
+
 O.2.1
 -----
 - Spec improvements, code style
