@@ -1,6 +1,5 @@
 language: ruby
 rvm:
-- 1.9.3
 - 2.0.0
 before_install:
 - openssl aes-256-cbc -K $encrypted_499d8fcdc79b_key -iv $encrypted_499d8fcdc79b_iv -in .kitchen.key.enc -out .kitchen.key -d
