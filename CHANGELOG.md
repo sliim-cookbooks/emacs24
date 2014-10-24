@@ -9,11 +9,11 @@ This file is used to list changes made in each version of the emacs24 cookbook.
 - Added `flags` attribute to set a list of flags for configure script
 - Added Ubuntu 14.04 as compatible platform
 
-O.2.1
+0.2.1
 -----
 - Spec improvements, code style
 
-O.2.0
+0.2.0
 -----
 - Fixed packages attribute for non debian platform
 - Added Ubuntu 12.04 support
