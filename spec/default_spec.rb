@@ -19,90 +19,51 @@
 require_relative 'spec_helper'
 
 describe 'emacs24::default' do
-  context 'with default attributes' do
-
-    let(:subject) { ChefSpec::Runner.new.converge described_recipe }
-
-    it 'does includes recipes' do
-      expect(subject).to include_recipe('apt')
-      expect(subject).to include_recipe('build-essential')
-    end
-
-    it 'does create build directory' do
-      expect(subject).to create_directory('/opt/emacs24')
-        .with(mode: '0755',
-              recursive: true)
-    end
-
-    it 'does download emacs package' do
-      expect(subject).to create_remote_file('/var/chef/cache/emacs.tar.gz')
-        .with(source: 'http://ftp.gnu.org/gnu/emacs/emacs-24.4.tar.gz',
-              mode: '0644')
-    end
-
-    it 'does untar emacs package' do
-      expect(subject).to run_execute('untar')
-        .with(cwd: '/opt/emacs24',
-              command: format('%s %s %s',
-                              'tar',
-                              '--strip-components 1 -xzf',
-                              '/var/chef/cache/emacs.tar.gz'))
-    end
-
-    it 'does build emacs' do
-      expect(subject).to run_execute('configure and make')
-        .with(cwd: '/opt/emacs24',
-              command: './configure && make')
-
-      expect(subject).to run_execute('make install')
-        .with(cwd: '/opt/emacs24',
-              command: 'sudo make install')
-    end
-  end
-
-  context 'with overriden attributes' do
+  context 'when build directory is not present' do
     let(:subject) do
       ChefSpec::Runner.new do |node|
-        node.set['emacs24']['build_dir'] = '/opt/emacs-build'
-        node.set['emacs24']['version'] = '24.4'
-        node.set['emacs24']['packages'] = ['libtinfo-dev']
-        node.set['emacs24']['flags'] = ['--with-x-toolkit=no', '--with-jpeg=no']
+        node.set['emacs24']['force'] = false
+        node.set['emacs24']['build_dir'] = '/tmp/emacs'
       end.converge described_recipe
     end
 
-    it 'does install libtinfo-dev package' do
-      expect(subject).to install_package('libtinfo-dev')
+    it 'does compile emacs24' do
+      allow(File).to receive(:directory?).and_call_original
+      allow(File).to receive(:directory?).with('/tmp/emacs')
+        .and_return(false)
+      expect(subject).to include_recipe('emacs24::compile')
+    end
+  end
+
+  context 'with emacs already installed and don\'t force compilation' do
+    let(:subject) do
+      ChefSpec::Runner.new do |node|
+        node.set['emacs24']['force'] = false
+        node.set['emacs24']['build_dir'] = '/tmp/emacs'
+      end.converge described_recipe
     end
 
-    it 'does create correct build directory' do
-      expect(subject).to create_directory('/opt/emacs-build')
-        .with(mode: '0755',
-              recursive: true)
+    it 'does not compile emacs24' do
+      allow(File).to receive(:directory?).and_call_original
+      allow(File).to receive(:directory?).with('/tmp/emacs')
+        .and_return(true)
+      expect(subject).to_not include_recipe('emacs24::compile')
+    end
+  end
+
+  context 'with emacs already installed and force compilation' do
+    let(:subject) do
+      ChefSpec::Runner.new do |node|
+        node.set['emacs24']['force'] = true
+        node.set['emacs24']['build_dir'] = '/tmp/emacs'
+      end.converge described_recipe
     end
 
-    it 'does download emacs package with correct version' do
-      expect(subject).to create_remote_file('/var/chef/cache/emacs.tar.gz')
-        .with(source: 'http://ftp.gnu.org/gnu/emacs/emacs-24.4.tar.gz',
-              mode: '0644')
-    end
-
-    it 'does untar emacs package in correct build directory' do
-      expect(subject).to run_execute('untar')
-        .with(cwd: '/opt/emacs-build',
-              command: format('%s %s %s',
-                              'tar',
-                              '--strip-components 1 -xzf',
-                              '/var/chef/cache/emacs.tar.gz'))
-    end
-
-    it 'does build emacs in correct build directory' do
-      expect(subject).to run_execute('configure and make')
-        .with(cwd: '/opt/emacs-build',
-              command: './configure --with-x-toolkit=no --with-jpeg=no&& make')
-
-      expect(subject).to run_execute('make install')
-        .with(cwd: '/opt/emacs-build',
-              command: 'sudo make install')
+    it 'does compile emacs24' do
+      allow(File).to receive(:directory?).and_call_original
+      allow(File).to receive(:directory?).with('/tmp/emacs')
+        .and_return(true)
+      expect(subject).to include_recipe('emacs24::compile')
     end
   end
 end

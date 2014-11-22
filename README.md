@@ -22,6 +22,7 @@ Attributes
 * `default["emacs24"]["flags"]` - List of flags passed to configure script
 * `default["emacs24"]["version"]` - Emacs version to install
 * `default["emacs24"]["packages"]` - Packages to install
+* `default["emacs24"]["force"]` - Force reinstall if build directory exists
 
 Usage
 -----
@@ -36,6 +37,19 @@ Just include `emacs24` in your node's `run_list`:
   ]
 }
 ```
+
+#### emacs24::compile
+You can also use the `emacs24::compile` recipe instead the default.
+
+```json
+{
+  "name":"my_node",
+  "run_list": [
+    "recipe[emacs24::compile]"
+  ]
+}
+```
+This is equivalent to use `emacs24::default` with `force` attribute.
 
 #### Tests
 This cookbook contains serverspec for test-kitchen, foodcritic and knife tests.

@@ -8,7 +8,8 @@ description      'Installs/Configures emacs24'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '0.3.0'
 
-recipe 'emacs24', 'Install Emacs 24 from source.'
+recipe 'emacs24', 'Include compile recipe if emacs is not installed.'
+recipe 'emacs24::compile', 'Build and install emacs from source.'
 
 %w(apt build-essential).each do |cb|
   depends cb
