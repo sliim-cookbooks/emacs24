@@ -3,6 +3,11 @@ emacs24 CHANGELOG
 
 This file is used to list changes made in each version of the emacs24 cookbook.
 
+0.4.0
+-----
+- Build emacs only if not built
+- Added `force` attribute
+
 0.3.0
 -----
 - Emacs 24.4 as default installed version
