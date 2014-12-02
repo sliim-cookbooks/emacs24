@@ -50,5 +50,5 @@ end
 
 execute 'make install' do
   cwd node['emacs24']['build_dir']
-  command 'sudo make install'
+  command 'make install'
 end

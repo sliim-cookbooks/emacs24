@@ -56,7 +56,7 @@ describe 'emacs24::compile' do
 
       expect(subject).to run_execute('make install')
         .with(cwd: '/opt/emacs24',
-              command: 'sudo make install')
+              command: 'make install')
     end
   end
 
@@ -102,7 +102,7 @@ describe 'emacs24::compile' do
 
       expect(subject).to run_execute('make install')
         .with(cwd: '/opt/emacs-build',
-              command: 'sudo make install')
+              command: 'make install')
     end
   end
 end
