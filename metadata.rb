@@ -6,7 +6,7 @@ maintainer_email 'sliim@mailoo.org'
 license          'Apache 2.0'
 description      'Installs/Configures emacs24'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '0.4.0'
+version          '0.4.1'
 
 recipe 'emacs24', 'Include compile recipe if emacs is not installed.'
 recipe 'emacs24::compile', 'Build and install emacs from source.'

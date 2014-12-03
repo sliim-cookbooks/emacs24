@@ -3,6 +3,10 @@ emacs24 CHANGELOG
 
 This file is used to list changes made in each version of the emacs24 cookbook.
 
+0.4.1
+-----
+- Don't use `sudo` command for `make install`
+
 0.4.0
 -----
 - Build emacs only if not built
