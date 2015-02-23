@@ -14,6 +14,7 @@ suites:
       - recipe[emacs24]
     attributes: {
       emacs24: {
+        version: '24.3',
         build_dir: "/opt/emacs"
       }
     }
