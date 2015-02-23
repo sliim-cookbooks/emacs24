@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 source 'https://rubygems.org'
 
-gem 'chef', '~> 11.12.2'
-gem 'berkshelf', '~> 2.0.16'
+gem 'chef'
+gem 'berkshelf'
 
 group :integration do
-  gem 'strainer', '~> 3.4.0'
-  gem 'test-kitchen', '~> 1.2.1'
-  gem 'kitchen-vagrant'
-  gem 'kitchen-openstack', '~> 1.6.1'
-  gem 'chefspec'
+  gem 'rake'
   gem 'foodcritic'
   gem 'rubocop'
+  gem 'chefspec'
+  gem 'test-kitchen'
+  gem 'kitchen-vagrant'
+  gem 'kitchen-openstack'
 end

@@ -21,13 +21,13 @@ require_relative 'spec_helper'
 describe 'emacs24::default' do
   context 'when build directory is not present' do
     let(:subject) do
-      ChefSpec::Runner.new do |node|
+      ChefSpec::SoloRunner.new(file_cache_path: '/var/chef/cache') do |node|
         node.set['emacs24']['force'] = false
         node.set['emacs24']['build_dir'] = '/tmp/emacs'
       end.converge described_recipe
     end
 
-    it 'does compile emacs24' do
+    it 'should compile emacs24' do
       allow(File).to receive(:directory?).and_call_original
       allow(File).to receive(:directory?).with('/tmp/emacs')
         .and_return(false)
@@ -37,13 +37,13 @@ describe 'emacs24::default' do
 
   context 'with emacs already installed and don\'t force compilation' do
     let(:subject) do
-      ChefSpec::Runner.new do |node|
+      ChefSpec::SoloRunner.new(file_cache_path: '/var/chef/cache') do |node|
         node.set['emacs24']['force'] = false
         node.set['emacs24']['build_dir'] = '/tmp/emacs'
       end.converge described_recipe
     end
 
-    it 'does not compile emacs24' do
+    it 'should not compile emacs24' do
       allow(File).to receive(:directory?).and_call_original
       allow(File).to receive(:directory?).with('/tmp/emacs')
         .and_return(true)
@@ -53,13 +53,13 @@ describe 'emacs24::default' do
 
   context 'with emacs already installed and force compilation' do
     let(:subject) do
-      ChefSpec::Runner.new do |node|
+      ChefSpec::SoloRunner.new(file_cache_path: '/var/chef/cache') do |node|
         node.set['emacs24']['force'] = true
         node.set['emacs24']['build_dir'] = '/tmp/emacs'
       end.converge described_recipe
     end
 
-    it 'does compile emacs24' do
+    it 'should compile emacs24' do
       allow(File).to receive(:directory?).and_call_original
       allow(File).to receive(:directory?).with('/tmp/emacs')
         .and_return(true)

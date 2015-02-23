@@ -10,6 +10,3 @@ AllCops:
     - resources/**/*
     - spec/**/*
     - test/**/*
-
-SingleSpaceBeforeFirstArg:
-  Enabled: false

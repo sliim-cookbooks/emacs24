@@ -52,19 +52,15 @@ You can also use the `emacs24::compile` recipe instead the default.
 This is equivalent to use `emacs24::default` with `force` attribute.
 
 #### Tests
-This cookbook contains serverspec for test-kitchen, foodcritic and knife tests.
 
 - First, install dependencies:  
-`bundle install`  
+`bundle install`
 
-- Install cookbook dependencies  
-`berks install`
+- Run Checkstyle and ChefSpec:  
+`bundle exec rake`
 
-- To run all tests:  
-`bundle exec strainer test`
-
-- To run integration tests:
-`bundle exec kitchen test`
+- Run Kitchen tests:  
+`bundle exec rake kitchen`  
 
 Contributing
 ------------
