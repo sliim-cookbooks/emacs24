@@ -32,14 +32,12 @@ describe 'emacs24::compile' do
 
     it 'should create build directory' do
       expect(subject).to create_directory('/opt/emacs24')
-        .with(mode: '0755',
-              recursive: true)
+        .with(recursive: true)
     end
 
     it 'should download emacs package' do
       expect(subject).to create_remote_file('/var/chef/cache/emacs.tar.gz')
-        .with(source: 'http://ftp.gnu.org/gnu/emacs/emacs-24.4.tar.gz',
-              mode: '0644')
+        .with(source: 'http://ftp.gnu.org/gnu/emacs/emacs-24.4.tar.gz')
     end
 
     it 'should untar emacs package' do
@@ -78,14 +76,12 @@ describe 'emacs24::compile' do
 
     it 'should create correct build directory' do
       expect(subject).to create_directory('/opt/emacs-build')
-        .with(mode: '0755',
-              recursive: true)
+        .with(recursive: true)
     end
 
     it 'should download emacs package with correct version' do
       expect(subject).to create_remote_file('/var/chef/cache/emacs.tar.gz')
-        .with(source: 'http://ftp.gnu.org/gnu/emacs/emacs-24.4.tar.gz',
-              mode: '0644')
+        .with(source: 'http://ftp.gnu.org/gnu/emacs/emacs-24.4.tar.gz')
     end
 
     it 'should untar emacs package in correct build directory' do

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # Cookbook Name:: emacs24
-# Attributes:: default
+# Attributes:: compile
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,5 +16,13 @@
 # limitations under the License.
 #
 
-default['ohai']['plugin_path'] = "#{Chef::Config[:file_cache_path]}/plugins"
-default['ohai']['plugins']['emacs24'] = 'ohai_plugins'
+default['emacs24']['build_dir'] = '/opt/emacs24'
+default['emacs24']['flags'] = []
+default['emacs24']['version'] = '24.4'
+default['emacs24']['packages'] = []
+default['emacs24']['force'] = false
+
+case node['platform']
+when 'debian', 'ubuntu'
+  default['emacs24']['packages'] = %w(libtinfo-dev)
+end

@@ -18,7 +18,7 @@ The following platforms and versions are tested and supported using Opscode's te
 
 Attributes
 ----------
-#### emacs24::default
+#### emacs24::compile
 <table>
 <tr>
 <th>Key</th>

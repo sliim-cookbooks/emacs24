@@ -70,7 +70,7 @@ describe 'emacs24::default' do
       end.converge described_recipe
     end
 
-    it 'should not compile emacs24' do
+    it 'should compile emacs24' do
       expect(subject).to include_recipe('emacs24::compile')
     end
   end
