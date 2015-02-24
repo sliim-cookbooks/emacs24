@@ -6,7 +6,7 @@ before_install:
 before_script:
 - bundle exec berks install
 script:
-- bundle exec strainer test --except kitchen
+- bundle exec rake
 - KITCHEN_YAML=.kitchen.cloud.yml bundle exec kitchen test --destroy=always
 env:
   global:

@@ -19,11 +19,44 @@ The following platforms and versions are tested and supported using Opscode's te
 Attributes
 ----------
 #### emacs24::default
-* `default["emacs24"]["build_dir"]` - Where emacs archive will be extracted and builded
-* `default["emacs24"]["flags"]` - List of flags passed to configure script
-* `default["emacs24"]["version"]` - Emacs version to install
-* `default["emacs24"]["packages"]` - Packages to install
-* `default["emacs24"]["force"]` - Force reinstall if build directory exists
+<table>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+<tr>
+<td><tt>['emacs24']['build_dir']</tt></td>
+<td>String</td>
+<td>Where emacs archive will be extracted and builded</td>
+<td><tt>/opt/emacs24</tt></td>
+</tr>
+<tr>
+<td><tt>['emacs24']['flags']</tt></td>
+<td>Array</td>
+<td>List of flags passed to configure script</td>
+<td><tt>[]</tt></td>
+</tr>
+<tr>
+<td><tt>['emacs24']['version']</tt></td>
+<td>String</td>
+<td>Emacs version to install</td>
+<td><tt>24.4</tt></td>
+</tr>
+<tr>
+<td><tt>['emacs24']['packages']</tt></td>
+<td>Array</td>
+<td>Packages to install</td>
+<td><tt><i>Platform-dependent</i></tt></td>
+</tr>
+<tr>
+<td><tt>['emacs24']['force']</tt></td>
+<td>Boolean</td>
+<td>Force reinstall if build directory exists</td>
+<td><tt>false</tt></td>
+</tr>
+</table>
 
 Usage
 -----
