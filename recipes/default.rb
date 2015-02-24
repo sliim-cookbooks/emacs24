@@ -16,5 +16,8 @@
 # limitations under the License.
 #
 
-installed = File.directory?(node['emacs24']['build_dir'])
+include_recipe 'ohai'
+
+installed = Gem::Version.new(node['emacs_version']) >=
+            Gem::Version.new(node['emacs24']['version'])
 include_recipe 'emacs24::compile' if !installed || node['emacs24']['force']

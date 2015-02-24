@@ -19,50 +19,58 @@
 require_relative 'spec_helper'
 
 describe 'emacs24::default' do
-  context 'when build directory is not present' do
+  context 'when emacs is not installed' do
     let(:subject) do
       ChefSpec::SoloRunner.new(file_cache_path: '/var/chef/cache') do |node|
         node.set['emacs24']['force'] = false
-        node.set['emacs24']['build_dir'] = '/tmp/emacs'
+        node.set['emacs24']['version'] = '24.4'
+        node.set['emacs_version'] = ''
       end.converge described_recipe
     end
 
     it 'should compile emacs24' do
-      allow(File).to receive(:directory?).and_call_original
-      allow(File).to receive(:directory?).with('/tmp/emacs')
-        .and_return(false)
       expect(subject).to include_recipe('emacs24::compile')
     end
   end
 
-  context 'with emacs already installed and don\'t force compilation' do
+  context 'when emacs is installed but not up to date' do
     let(:subject) do
       ChefSpec::SoloRunner.new(file_cache_path: '/var/chef/cache') do |node|
         node.set['emacs24']['force'] = false
-        node.set['emacs24']['build_dir'] = '/tmp/emacs'
-      end.converge described_recipe
-    end
-
-    it 'should not compile emacs24' do
-      allow(File).to receive(:directory?).and_call_original
-      allow(File).to receive(:directory?).with('/tmp/emacs')
-        .and_return(true)
-      expect(subject).to_not include_recipe('emacs24::compile')
-    end
-  end
-
-  context 'with emacs already installed and force compilation' do
-    let(:subject) do
-      ChefSpec::SoloRunner.new(file_cache_path: '/var/chef/cache') do |node|
-        node.set['emacs24']['force'] = true
-        node.set['emacs24']['build_dir'] = '/tmp/emacs'
+        node.set['emacs24']['version'] = '24.4'
+        node.set['emacs_version'] = '24.3.1'
       end.converge described_recipe
     end
 
     it 'should compile emacs24' do
-      allow(File).to receive(:directory?).and_call_original
-      allow(File).to receive(:directory?).with('/tmp/emacs')
-        .and_return(true)
+      expect(subject).to include_recipe('emacs24::compile')
+    end
+  end
+
+  context 'when emacs is installed and up to date' do
+    let(:subject) do
+      ChefSpec::SoloRunner.new(file_cache_path: '/var/chef/cache') do |node|
+        node.set['emacs24']['force'] = false
+        node.set['emacs24']['version'] = '24.4'
+        node.set['emacs_version'] = '24.4.1'
+      end.converge described_recipe
+    end
+
+    it 'should not compile emacs24' do
+      expect(subject).to_not include_recipe('emacs24::compile')
+    end
+  end
+
+  context 'when emacs is installed, up to date, and force option is enabled' do
+    let(:subject) do
+      ChefSpec::SoloRunner.new(file_cache_path: '/var/chef/cache') do |node|
+        node.set['emacs24']['force'] = true
+        node.set['emacs24']['version'] = '24.4'
+        node.set['emacs_version'] = '24.4.1'
+      end.converge described_recipe
+    end
+
+    it 'should not compile emacs24' do
       expect(subject).to include_recipe('emacs24::compile')
     end
   end

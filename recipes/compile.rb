@@ -24,7 +24,7 @@ node['emacs24']['packages'].each do |pkg|
 end
 
 remotefile = 'http://ftp.gnu.org/gnu/emacs/emacs-'
-remotefile << node['emacs24']['version'] << '.tar.gz'
+remotefile << node['emacs24']['version'].to_s << '.tar.gz'
 localfile = Chef::Config[:file_cache_path] + '/emacs.tar.gz'
 
 remote_file localfile do

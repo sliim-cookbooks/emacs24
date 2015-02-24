@@ -11,7 +11,7 @@ version '0.4.1'
 recipe 'emacs24', 'Include compile recipe if emacs is not installed.'
 recipe 'emacs24::compile', 'Build and install emacs from source.'
 
-%w(apt build-essential).each do |cb|
+%w(apt build-essential ohai).each do |cb|
   depends cb
 end
 
