@@ -1,22 +1,7 @@
 language: ruby
 rvm:
 - 2.0.0
-before_install:
-- openssl aes-256-cbc -K $encrypted_499d8fcdc79b_key -iv $encrypted_499d8fcdc79b_iv -in .kitchen.key.enc -out .kitchen.key -d
 before_script:
 - bundle exec berks install
 script:
 - bundle exec rake
-- KITCHEN_YAML=.kitchen.cloud.yml bundle exec kitchen test --destroy=always
-env:
-  global:
-  - secure: sDzsLGSrKNk3Pvi+WvMfwlTrVXwW2Cfq0eiGz7ADRl6wQ9Jwa/H66MFzUeHdk/czKHwOUYU9SsMMNWkFp48oO6jQhyGKFzTlzwP99+5p7II9y3tWBB/lHLKH+t8GU0rhVmY1InpvVY/1pmNgJ9VBq+anwI887NBoTHlxYCSelSo=
-  - secure: plBvMVvKHIo0okDkzm7GMDrOE9QkEoaxZMQs/0ow3DMP0z4Q2fkPMbFMtn8I3wD+2sMC51ocroYio1qadlcXVrgjaoL3hDcC9vPWnNBJtHmn4RFUD9RKZv21L1n/DTjoTsH/YdmgpeI17Cs0aZjfqKOM25DOLNvUW3DTagJZCQE=
-  - secure: rqE1/miyPeZh0tVn0DmUDBznu1LzprzUxwQ57+GzF7BkUkywmucvrdxQsltxH4FiB9UZQbbVSm7Gfsl7TqKC4Y9PrVAvDRRn7Mr8As8mbber9g6gl/k/c3VFUkLV7Xx5xQpyvPH5oBG+oIAvYr4jVBl7R7DIJtiN8chTn6enArk=
-  - secure: TWXI7vEosbJk492qeWmzC8nwBgQFi4XkO4sCDDD52EaeSqX26KBVWdZRWvN7YF5lbL29GvqiGlT4epM3w11Tz+VXCUVARn70hXLoukApLN0r2RznLM6LWHF3Aw4eavP7w1B42ZON1Sz24eiITu1oaCKvauPGBrewIOKMlvPoSOE=
-  - secure: AuweaHltUfc1cglzkNiLeMNUJGmMPrg1Sp7VF/EnaEsx1UihbDreTjMSNjGrPrB52GEai6o3/LG3fjGHr6kPehyWfD6OrL6BVL0T7TBm85fvVx/AwIP8nnenQjJaDUOaQSUfc3jcj+lYkOWsmTNtwia+OI4/I++pspY35jnSvwM=
-  - secure: WqLT1+dR6Uu36LqM/kiiRaeRMS8mLIemy/RJ0QFoNiMfKaj5j5spXk3T0yVd/JNJz1GDbp96AfuSE7I8JDI7i+m0KXB/ID4H0uPrB0BRVf2e8wKuNsp6hyXl5CHWCQxnjZH0A6PVB7ttuG0mrF2NtdqRRnJDiK0/3qet1RCif4A=
-  - secure: M5Gsbr6uoyZAlND0wBfJyUlGL5sdspJnVwiyrigjtqhgg/LPO2sVYZwepdBDwLdDqRitxmTpWl0zKRU0htNe6gvv2jOg3L/B0bjEj67ttDYUQa1s4kM3lJ/5O6rzRUTJw+0MrshWJ4B/0ZDgxCWfBlsF120hhD2PhpTEsFjd9cc=
-  - secure: WDaKwxXuuyeQiUjI3xmFH5BkXzClOUMI/JLDwLD55f2NRcZlwkO2cU4h7OcOB8cd1CjvT7NLDJSj1EofMrS9epjXwnMCsi0qWhoOWe9oJY7zqu0RwskgVtv2gfPVEBEHgWaQHW3yV/N+Bg3LrlJKItRK3QAUgq1mcmuTdhQ6+bg=
-  - secure: fBeAE3m2ejBF21denND2dKxlWCbgeI8zRYMBn/sQHUD29EFIe7EC4HJRUoypUDeyNoWq1KxAovyFT8jMwCgc8RgBixPrgQBeMdekJ/H2iEOw3ycvVr9Vc6p9MyKTm5GLug5xWZwuzwjj78NqamZFd1ZSNcEzWVT242mBBKPIjZ4=
-  - secure: BscwE3GK1UqUHpHP+pEWy0EkIcIC2OanXoJLu4ckojIUE33QIIcDBHz+dBQom3g9SjSY6totWYKxjracjH27xDpUkOXVfVBCoOV7nQwgrikkY2ESamlpSeNSh39TRqMWgiUtpMAgAFR91EDjvQUIWS0hJnrE4oJCmivXNX8zVyE=

@@ -11,5 +11,4 @@ group :integration do
   gem 'chefspec'
   gem 'test-kitchen'
   gem 'kitchen-vagrant'
-  gem 'kitchen-openstack'
 end
