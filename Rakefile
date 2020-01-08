@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 def bundle_exec(command)
   sh "bundle exec #{command}"
 end
@@ -14,7 +12,7 @@ namespace :test do
 
   task :checkstyle do
     Rake::Task['test:foodcritic'].invoke
-    Rake::Task['test:rubocop'].invoke
+    Rake::Task['test:cookstyle'].invoke
   end
 
   task :specs do
@@ -25,8 +23,8 @@ namespace :test do
     bundle_exec 'foodcritic -f any .'
   end
 
-  task :rubocop do
-    bundle_exec :rubocop
+  task :cookstyle do
+    bundle_exec :cookstyle
   end
 
   task :chefspec do

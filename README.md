@@ -6,8 +6,6 @@ Download and install GNU Emacs 24.4 from source.
 Requirements
 ------------
 #### Cookbooks
-- `apt` - `https://supermarket.chef.io/cookbooks/apt`
-- `build-essential` - `https://supermarket.chef.io/cookbooks/build-essential`
 - `ohai` - `https://supermarket.chef.io/cookbooks/ohai`
 
 #### Platforms

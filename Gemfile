@@ -1,14 +1,19 @@
-# -*- coding: utf-8 -*-
 source 'https://rubygems.org'
 
-gem 'chef'
+gem 'chef', '~> 14'
 gem 'berkshelf'
+gem 'rake'
 
-group :integration do
-  gem 'rake'
+group :lint do
+  gem 'cookstyle'
   gem 'foodcritic'
-  gem 'rubocop'
+end
+
+group :unit do
   gem 'chefspec'
+end
+
+group :kitchen do
   gem 'test-kitchen'
   gem 'kitchen-vagrant'
 end

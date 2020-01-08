@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-#
-# Cookbook Name:: emacs24
+# Cookbook:: emacs24
 # Spec:: default
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,6 +17,10 @@
 require_relative 'spec_helper'
 
 describe 'emacs24::default' do
+  it 'should install ohai plugin' do
+    expect(subject).to install_ohai_plugin('emacs')
+  end
+
   context 'when emacs is not installed' do
     let(:subject) do
       ChefSpec::SoloRunner.new(file_cache_path: '/var/chef/cache') do |node|

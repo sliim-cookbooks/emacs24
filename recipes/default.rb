@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-#
-# Cookbook Name:: emacs24
+# Cookbook:: emacs24
 # Recipe:: default
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,7 +14,7 @@
 # limitations under the License.
 #
 
-include_recipe 'ohai'
+ohai_plugin 'emacs'
 
 installed = Gem::Version.new(node['emacs_version']) >=
             Gem::Version.new(node['emacs24']['version'])

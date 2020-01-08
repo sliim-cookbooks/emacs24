@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-#
-# Cookbook Name:: emacs24
+# Cookbook:: emacs24
 # Spec:: Helper
 #
 # Licensed under the Apache License, Version 2.0 (the "License");

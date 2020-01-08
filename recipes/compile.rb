@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-#
-# Cookbook Name:: emacs24
+# Cookbook:: emacs24
 # Recipe:: compile
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,8 +14,8 @@
 # limitations under the License.
 #
 
-include_recipe 'apt'
-include_recipe 'build-essential'
+apt_update
+build_essential
 
 node['emacs24']['packages'].each do |pkg|
   package pkg

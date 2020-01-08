@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-#
-# Cookbook Name:: emacs24
+# Cookbook:: emacs24
 # Spec:: compile
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,13 +19,15 @@ require_relative 'spec_helper'
 describe 'emacs24::compile' do
   context 'with default attributes' do
     let(:subject) do
-      ChefSpec::SoloRunner.new(file_cache_path: '/var/chef/cache')
-        .converge described_recipe
+      ChefSpec::SoloRunner.new(file_cache_path: '/var/chef/cache').converge(described_recipe)
     end
 
-    it 'should includes recipes' do
-      expect(subject).to include_recipe('apt')
-      expect(subject).to include_recipe('build-essential')
+    it 'should periodics apt_update' do
+      expect(subject).to periodic_apt_update('')
+    end
+
+    it 'should installs build_essential' do
+      expect(subject).to install_build_essential('')
     end
 
     it 'should create build directory' do

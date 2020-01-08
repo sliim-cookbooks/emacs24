@@ -1,20 +1,15 @@
-# -*- coding: utf-8 -*-
-
 name 'emacs24'
 maintainer 'Sliim'
 maintainer_email 'sliim@mailoo.org'
-license 'Apache 2.0'
+license 'Apache-2.0'
 description 'Installs/Configures emacs24'
-long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
+chef_version '>= 14'
 version '0.5.0'
 
-recipe 'emacs24', 'Include compile recipe if emacs is not installed.'
-recipe 'emacs24::compile', 'Build and install emacs from source.'
+depends 'ohai'
 
-%w(apt build-essential ohai).each do |cb|
-  depends cb
-end
+supports 'ubuntu'
+supports 'debian'
 
-%w(ubuntu debian).each do |os|
-  supports os
-end
+source_url 'https://github.com/sliim-cookbooks/emacs24'
+issues_url 'https://github.com/sliim-cookbooks/emacs24/issues'
