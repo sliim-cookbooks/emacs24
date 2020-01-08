@@ -17,8 +17,8 @@
 require_relative 'spec_helper'
 
 describe 'emacs24::default' do
-  it 'should install ohai plugin' do
-    expect(subject).to install_ohai_plugin('emacs')
+  it 'should create ohai plugin' do
+    expect(subject).to create_ohai_plugin('emacs')
   end
 
   context 'when emacs is not installed' do
