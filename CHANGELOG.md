@@ -3,9 +3,13 @@ emacs24 CHANGELOG
 
 This file is used to list changes made in each version of the emacs24 cookbook.
 
+0.6.0
+-----
+- Remove apt & build-essential dependencies
+- CI fixes
+
 0.5.0
 -----
-
 - New requirement: [ohai](https://supermarket.chef.io/cookbooks/ohai) cookbook
 - Best way to determine if the `compile` recipe should be included in `default` recipe
 Check for version installed instead of build directory present.

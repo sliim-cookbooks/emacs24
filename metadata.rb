@@ -4,7 +4,7 @@ maintainer_email 'sliim@mailoo.org'
 license 'Apache-2.0'
 description 'Installs/Configures emacs24'
 chef_version '>= 14'
-version '0.5.0'
+version '0.6.0'
 
 depends 'ohai'
 
