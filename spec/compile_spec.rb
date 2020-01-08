@@ -63,10 +63,10 @@ describe 'emacs24::compile' do
   context 'with overriden attributes' do
     let(:subject) do
       ChefSpec::SoloRunner.new(file_cache_path: '/var/chef/cache') do |node|
-        node.set['emacs24']['build_dir'] = '/opt/emacs-build'
-        node.set['emacs24']['version'] = '24.4'
-        node.set['emacs24']['packages'] = ['libtinfo-dev']
-        node.set['emacs24']['flags'] = ['--with-x-toolkit=no', '--with-jpeg=no']
+        node.override['emacs24']['build_dir'] = '/opt/emacs-build'
+        node.override['emacs24']['version'] = '24.4'
+        node.override['emacs24']['packages'] = ['libtinfo-dev']
+        node.override['emacs24']['flags'] = ['--with-x-toolkit=no', '--with-jpeg=no']
       end.converge described_recipe
     end
 

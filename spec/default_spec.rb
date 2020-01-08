@@ -24,9 +24,9 @@ describe 'emacs24::default' do
   context 'when emacs is not installed' do
     let(:subject) do
       ChefSpec::SoloRunner.new(file_cache_path: '/var/chef/cache') do |node|
-        node.set['emacs24']['force'] = false
-        node.set['emacs24']['version'] = '24.4'
-        node.set['emacs_version'] = ''
+        node.override['emacs24']['force'] = false
+        node.override['emacs24']['version'] = '24.4'
+        node.override['emacs_version'] = ''
       end.converge described_recipe
     end
 
@@ -38,9 +38,9 @@ describe 'emacs24::default' do
   context 'when emacs is installed but not up to date' do
     let(:subject) do
       ChefSpec::SoloRunner.new(file_cache_path: '/var/chef/cache') do |node|
-        node.set['emacs24']['force'] = false
-        node.set['emacs24']['version'] = '24.4'
-        node.set['emacs_version'] = '24.3.1'
+        node.override['emacs24']['force'] = false
+        node.override['emacs24']['version'] = '24.4'
+        node.override['emacs_version'] = '24.3.1'
       end.converge described_recipe
     end
 
@@ -52,9 +52,9 @@ describe 'emacs24::default' do
   context 'when emacs is installed and up to date' do
     let(:subject) do
       ChefSpec::SoloRunner.new(file_cache_path: '/var/chef/cache') do |node|
-        node.set['emacs24']['force'] = false
-        node.set['emacs24']['version'] = '24.4'
-        node.set['emacs_version'] = '24.4.1'
+        node.override['emacs24']['force'] = false
+        node.override['emacs24']['version'] = '24.4'
+        node.override['emacs_version'] = '24.4.1'
       end.converge described_recipe
     end
 
@@ -66,9 +66,9 @@ describe 'emacs24::default' do
   context 'when emacs is installed, up to date, and force option is enabled' do
     let(:subject) do
       ChefSpec::SoloRunner.new(file_cache_path: '/var/chef/cache') do |node|
-        node.set['emacs24']['force'] = true
-        node.set['emacs24']['version'] = '24.4'
-        node.set['emacs_version'] = '24.4.1'
+        node.override['emacs24']['force'] = true
+        node.override['emacs24']['version'] = '24.4'
+        node.override['emacs_version'] = '24.4.1'
       end.converge described_recipe
     end
 
